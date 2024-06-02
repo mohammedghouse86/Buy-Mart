@@ -3,7 +3,7 @@ import Products from './Component/Products';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route} from 'react-router-dom';
 import RouteLayout from './Component/RouteLayout.js';
-import About from './Component/bout.js';
+import About from './Component/About.js';
 import Cart from './Component/Cart.js';
 
 function App() {
