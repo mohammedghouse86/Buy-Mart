@@ -23,6 +23,7 @@ const NavbarComp = () => {
 
             <Button  ><Nav.Link to="/cart" as={Link}>Cart</Nav.Link></Button>
           
+          
         </Navbar.Collapse>
       </Container>
     </Navbar>
