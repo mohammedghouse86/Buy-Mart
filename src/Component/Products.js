@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useDispatch } from 'react-redux';
+import { add } from './Store/cartslice';
+
 
 const Products = () => {
     const [things, setThings] = useState([]);
@@ -8,6 +11,9 @@ const Products = () => {
         fetch('https://fakestoreapi.com/products')
                 .then(res=>res.json())
                 .then(json=>setThings(json))},[])
+
+    const dispatch = useDispatch();
+    const addToCart = (product) =>{dispatch(add(product))}
 
     const card = things.map(product  => {
         return(
@@ -26,11 +32,11 @@ const Products = () => {
                 </Card.Text>
                 </Card.Body>
                 <Card.Footer className='text-center'>
-                <Button variant="primary">ADD TO CART</Button>
+                <Button variant="primary" onClick = {() => addToCart(product)}>ADD TO CART</Button>
                 </Card.Footer>
             </Card></div>)})
   return (
-    <div className='row'>
+    <div className='row'style={{ marginTop: '80px'}}>
       {card}
     </div>
   )
