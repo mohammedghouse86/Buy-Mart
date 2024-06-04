@@ -5,6 +5,7 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route} f
 import RouteLayout from './Component/RouteLayout.js';
 import About from './Component/About.js';
 import Cart from './Component/Cart.js';
+import Testing from './Component/Testing.js';
 
 function App() {
   const router = createBrowserRouter(createRoutesFromElements(
@@ -12,6 +13,7 @@ function App() {
       <Route index element ={<Products/>}></Route>
       <Route path='/about' element ={<About/>}></Route>
       <Route path='/cart' element ={<Cart/>}></Route>
+      <Route path='/testing' element ={<Testing/>}></Route>
     </Route>
 
   ))

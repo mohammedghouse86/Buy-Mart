@@ -5,18 +5,14 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { selectGrandTotal } from './Store/cartslice';
 
 const NavbarComp = () => {
-  const [total, setTotal] = useState(0);
+  
   const quantities = useSelector(state => state.cart);
+  const grandTotal = useSelector(selectGrandTotal);
 
-  useEffect(() => {
-    const newTotal = quantities.reduce((sum, item) => {
-      return sum + (Number(item.price) * Number(item.quantity));
-    }, 0);
-    setTotal(newTotal);
-    console.log('Total updated:', newTotal);
-  }, [quantities]);
+
 
   return (
     <div>
@@ -30,11 +26,12 @@ const NavbarComp = () => {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
+              <Nav.Link as={Link} to="/testing">Testing</Nav.Link>
               <Nav.Link as={Link} to="/about">About</Nav.Link>
             </Nav>
 
             <Button as={Link} to="/cart">
-              Cart ({quantities.length} items) ${total.toFixed(2)}
+              Cart ({quantities.length} items) ${grandTotal.toFixed(2)}
             </Button>
           </Navbar.Collapse>
         </Container>
