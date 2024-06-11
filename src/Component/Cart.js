@@ -50,6 +50,7 @@ const Cart = () => {
             Quantity = <input
               type='number'
               step='1'
+              min ='1'
               value={quantities[product.id]}
               onChange={(e) => handleQuantityChange(product.id, e,product)}
               style={{ width: '50px' }}
